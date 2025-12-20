@@ -4,7 +4,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 
 APP_NAME = "Dual CI/CD Demo App"
 APP_ENV = os.getenv("APP_ENV", "development")
-PORT = int(os.getenv("APP_PORT", 8000))
+PORT = int(os.getenv("APP_PORT"))
 
 
 class SimpleHandler(BaseHTTPRequestHandler):
