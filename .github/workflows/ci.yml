@@ -1,0 +1,42 @@
+name: CI Pipeline — Docker Build & Validation
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  docker-build:
+    name: Build and Validate Docker Image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: |
+          docker build \
+            -t dual-ci-cd-app \
+            -f docker/Dockerfile .
+
+      - name: Run Docker container
+        run: |
+          docker run -d -p 8000:8000 --name ci-test-container dual-ci-cd-app
+          sleep 5
+
+      - name: Validate application response
+        run: |
+          curl -f http://localhost:8000
+
+      - name: Stop and remove container
+        run: |
+          docker stop ci-test-container
+          docker rm ci-test-container
