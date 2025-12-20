@@ -2,6 +2,9 @@ import os
 import time
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
+raise Exception("Simulated startup failure")
+
+
 APP_NAME = "Dual CI/CD Demo App"
 APP_ENV = os.getenv("APP_ENV", "development")
 PORT = int(os.getenv("APP_PORT"))
