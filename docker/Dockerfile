@@ -5,7 +5,7 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # Copy application code
-COPY app/main_wrong.py /app/main.py
+COPY app/main.py /app/main.py
 
 # Expose application port
 EXPOSE 8000
