@@ -1,6 +1,11 @@
-# DevOps Project 3 — Dual CI/CD Pipelines
+# DevOps Project 3 — Dual CI/CD Pipelines with Jenkins and GitHub Actions
 
-This project demonstrates a dual CI/CD implementation using GitHub Actions and Jenkins
-running both on AWS EC2 and a local machine.
+This project demonstrates a dual CI/CD implementation using GitHub Actions and Jenkins,
+with Jenkins running in two modes:
+- On AWS EC2
+- On a local machine
 
-Detailed documentation is available in the docs/ directory.
+The project is designed to showcase CI portability, pipeline parity, failure simulation,
+and recovery analysis using real-world DevOps practices.
+
+Detailed documentation is available in the `docs/` directory.
